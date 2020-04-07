@@ -42,6 +42,9 @@ public class PlayerInteract implements Listener {
             String title = chest.getCustomName();
             if (title != null && title.contains(" Crate!"))
                 return;
+            if (title == null) {
+                return;
+            }
             crateType = ChatColor.stripColor(title.replaceAll(" Crate!", ""));
         } else {
             crateType = event.getClickedBlock().getMetadata("CrateType").get(0).asString();
